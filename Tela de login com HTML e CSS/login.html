@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <!-- Charset para aceitar acentos -->
+    <meta charset="UTF-8" />
+    <!-- Responsividade (celular/tablet) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Título -->
+    <title>Login / Cadastro - Glass</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="form-login.css" />
+  </head>
+  <body>
+    <!--
+      Wrapper contém as duas telas.
+      JS alterna com a classe: show-register
+    -->
+    <main class="wrapper" id="wrapper">
+      <!-- =====================================================
+           TELA: LOGIN
+           ===================================================== -->
+      <section class="card glass" id="loginCard" aria-label="Tela de Login">
+        <!-- Cabeçalho -->
+        <header class="card__header">
+          <h1>Login</h1>
+          <p>Entre com seu usuário e senha.</p>
+        </header>
+        <!-- Área de mensagem do login (erros/sucesso) -->
+        <p class="message" id="loginMsg" aria-live="polite"></p>
+        <!-- Form login -->
+        <form class="form" id="loginForm">
+          <!-- Usuário (login) -->
+          <div class="field">
+            <!--
+              placeholder=" " (com espaço) garante :placeholder-shown
+              required impede vazio
+            -->
+            <input
+              type="text"
+              id="loginUser"
+              class="field__input"
+              placeholder=" "
+              required
+              autocomplete="username"
+            />
+            <label class="field__label" for="loginUser">Usuário</label>
+          </div>
+          <!-- Senha (login) -->
+          <div class="field">
+            <input
+              type="password"
+              id="loginPass"
+              class="field__input"
+              placeholder=" "
+              required
+              autocomplete="current-password"
+            />
+            <label class="field__label" for="loginPass">Senha</label>
+          </div>
+          <!-- Linha: lembrar / esqueci -->
+          <div class="row">
+            <label class="check">
+              <input type="checkbox" id="rememberMe" />
+              Lembrar-me
+            </label>
+            <!-- Link fake (sem backend) -->
+            <a class="link" href="#" id="forgotLink">Esqueci minha senha</a>
+          </div>
+          <!-- Botão -->
+          <button type="submit" class="btn">Entrar</button>
+          <!-- Trocar para Cadastro -->
+          <p class="switch">
+            Não tem conta?
+            <a href="#" class="link" id="goRegister">Cadastrar</a>
+          </p>
+        </form>
+        <!-- Área “logado” (aparece após login) -->
+        <div class="logged" id="loggedBox" hidden>
+          <p class="logged__text">
+            Você está logado como <strong id="loggedUser"></strong>.
+          </p>
+          <button class="btn btn--light" id="logoutBtn" type="button">
+            Sair
+          </button>
+        </div>
+      </section>
+      <!-- =====================================================
+           TELA: CADASTRO
+           ===================================================== -->
+      <section class="card glass" id="registerCard" aria-label="Tela de Cadastro">
+        <!-- Cabeçalho -->
+        <header class="card__header">
+          <h1>Cadastro</h1>
+          <p>Crie sua conta para acessar o sistema.</p>
+        </header>
+        <!-- Área de mensagem do cadastro -->
+        <p class="message" id="registerMsg" aria-live="polite"></p>
+        <!-- Form cadastro -->
+        <form class="form" id="registerForm">
+          <!-- Nome -->
+          <div class="field">
+            <input
+              type="text"
+              id="regName"
+              class="field__input"
+              placeholder=" "
+              required
+              autocomplete="name"
+            />
+            <label class="field__label" for="regName">Nome completo</label>
+          </div>
+          <!-- Email -->
+          <div class="field">
+            <input
+              type="email"
+              id="regEmail"
+              class="field__input"
+              placeholder=" "
+              required
+              autocomplete="email"
+            />
+            <label class="field__label" for="regEmail">E-mail</label>
+          </div>
+          <!-- Usuário -->
+          <div class="field">
+            <input
+              type="text"
+              id="regUser"
+              class="field__input"
+              placeholder=" "
+              required
+              autocomplete="username"
+            />
+            <label class="field__label" for="regUser">Usuário</label>
+          </div>
+          <!-- Senha -->
+          <div class="field">
+            <input
+              type="password"
+              id="regPass"
+              class="field__input"
+              placeholder=" "
+              required
+              autocomplete="new-password"
+            />
+            <label class="field__label" for="regPass">Senha forte</label>
+            <!-- Dica visual (regras) -->
+            <small class="help">
+              Use 8+ caracteres, 1 maiúscula, 1 minúscula, 1 número e 1 símbolo.
+            </small>
+          </div>
+          <!-- Confirmar senha -->
+          <div class="field">
+            <input
+              type="password"
+              id="regPass2"
+              class="field__input"
+              placeholder=" "
+              required
+              autocomplete="new-password"
+            />
+            <label class="field__label" for="regPass2">Confirmar senha</label>
+          </div>
+          <!-- Botão cadastrar -->
+          <button type="submit" class="btn">Criar conta</button>
+          <!-- Voltar para login -->
+          <p class="switch">
+            Já tem conta?
+            <a href="#" class="link" id="goLogin">Voltar ao Login</a>
+          </p>
+        </form>
+      </section>
+    </main>
+    <!-- JS separado -->
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
